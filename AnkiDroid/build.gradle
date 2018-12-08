@@ -27,14 +27,6 @@ android {
         abortOnError false
         disable 'TypographyEllipsis'
     }
-    signingConfigs {
-        release {
-            storeFile file("${homePath}/src/android-keystore")
-            keyAlias "nrkeystorealias"
-            storePassword System.getenv("KSTOREPWD")
-            keyPassword System.getenv("KEYPWD")
-        }
-    }
     buildTypes {
         debug {
             debuggable true
@@ -45,7 +37,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
             buildConfigField "String", "ACRA_URL", '"https://ankidroid.org/acra/report"'
         }
     }
